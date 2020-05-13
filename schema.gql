@@ -1,0 +1,28 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Order {
+  orderId: String!
+  orders: [String!]!
+}
+
+type Query {
+  helloWorld: String!
+}
+
+type Mutation {
+  addOrder(orderData: OrderInput!): Order!
+}
+
+input OrderInput {
+  userInfo: UserInfoInput!
+  orders: [String!]!
+}
+
+input UserInfoInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  phoneNumber: String!
+}
