@@ -2,9 +2,28 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Order {
-  orderId: String!
-  orders: [String!]!
+type Enquire {
+  brand: String!
+  name: String!
+  store: String!
+}
+
+type UserInfo {
+  firstName: String!
+  lastName: String!
+  email: String!
+  phoneNumber: String!
+  location: String!
+}
+
+type CheckoutDto {
+  checkoutId: ID!
+  userInfo: UserInfo!
+  enquire: [Enquire!]!
+  products: [ID!]!
+  status: String!
+  createdOn: Int!
+  modifiedOn: Int!
 }
 
 type Query {
@@ -12,17 +31,26 @@ type Query {
 }
 
 type Mutation {
-  addOrder(orderData: OrderInput!): Order!
+  checkout(checkoutData: CheckoutInput!): CheckoutDto!
 }
 
-input OrderInput {
-  userInfo: UserInfoInput!
-  orders: [String!]!
+input CheckoutInput {
+  user: UserInfoInput!
+  enquire: [EnquireInput!]
+  products: [ID!]
 }
 
 input UserInfoInput {
+  userId: ID
   firstName: String!
   lastName: String!
   email: String!
   phoneNumber: String!
+  location: String!
+}
+
+input EnquireInput {
+  brand: String!
+  name: String!
+  store: String!
 }

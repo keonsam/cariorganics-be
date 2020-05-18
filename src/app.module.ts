@@ -1,16 +1,18 @@
 import { Module } from '@nestjs/common';
-// import { AppController } from './app.controller';
-// import { AppService } from './app.service';
 import { GraphQLModule } from "@nestjs/graphql";
 import {AppResolver} from "./app.resolver";
-import {OrderModule} from "./order/order.module";
+import { MongooseModule } from "@nestjs/mongoose";
+import {CheckoutModule} from "./checkout/checkout.module";
 
 @Module({
   imports: [
       GraphQLModule.forRoot({
         autoSchemaFile: 'schema.gql',
       }),
-      OrderModule
+      MongooseModule.forRoot(
+          'mongodb+srv://m001-student:m001-mongodb-basics@cariorganics-test-3ruzv.mongodb.net/cariogranics-test-db?retryWrites=true&w=majority'
+      ),
+      CheckoutModule
   ],
   // controllers: [AppController],
   providers: [AppResolver],
