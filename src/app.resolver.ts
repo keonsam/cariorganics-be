@@ -1,12 +1,13 @@
 import {Query, Resolver} from "@nestjs/graphql";
+import {AppService} from "./app.service";
 
 @Resolver()
 export class AppResolver {
-    constructor() {
+    constructor(private appService: AppService) {
     }
 
     @Query( () => String)
     async helloWorld(): Promise<string> {
-        return 'Hello World!';
+        return this.appService.getHello();
     }
 }

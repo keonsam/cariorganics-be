@@ -8,12 +8,11 @@ import { ApolloError } from "apollo-server-errors";
 export class CheckoutResolver {
     constructor(private checkoutService: CheckoutService) {
     }
+
     @Mutation(() => CheckoutDto)
     async checkout(@Args('checkoutData') checkoutData: CheckoutInput): Promise<CheckoutDto> {
         try {
-            const data = await this.checkoutService.checkout(checkoutData);
-            console.log(data);
-            return data;
+            return await this.checkoutService.checkout(checkoutData);
         }catch (e) {
             console.log(e);
             throw new ApolloError(e, '404');

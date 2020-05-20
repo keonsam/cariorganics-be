@@ -12,6 +12,7 @@ import { v4 as uuid } from "uuid";
 export class CheckoutService {
     constructor(@InjectModel('Checkout') private readonly checkoutModel: Model<Checkout>) {
     }
+
     async checkout(checkoutData: CheckoutInput): Promise<CheckoutDto> {
         const user: UserInfo = new UserInfo(checkoutData.user);
         const enquire: Enquire[] = checkoutData.enquire;
@@ -21,16 +22,5 @@ export class CheckoutService {
         checkout.createdOn = Date.now();
         const createdCheckout = new this.checkoutModel(checkout);
         return createdCheckout.save();
-        // return this.checkoutRepository.addCheckout(checkout);
-        // if (user.userId) {
-        // }else {
-        //     return this.userRepository.addUser(user)
-        //         .pipe(switchMap(userDoc => {
-        //             if (userDoc.userId) {
-        //                 checkout.userId = userDoc.userId;
-        //                 return this.checkoutRepository.addCheckout(checkout);
-        //             }
-        //         }));
-        // }
     }
 }

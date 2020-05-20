@@ -1,4 +1,4 @@
-import {Field, ID, Int, ObjectType} from "@nestjs/graphql";
+import {Field, Float, ID, Int, ObjectType} from "@nestjs/graphql";
 import {Enquire} from "../../enquire/dto/enquire";
 import {UserInfo} from "../../users/dto/user.info";
 
@@ -14,9 +14,9 @@ export class CheckoutDto {
     products: string[];
     @Field()
     status: string;
-    @Field( () => Int)
+    @Field( () => Float)
     createdOn: number;
-    @Field( () => Int)
+    @Field( () => Float)
     modifiedOn: number;
     constructor(userInfo: UserInfo, enquire?: Enquire[], products?: string[]) {
         this.userInfo = userInfo;
