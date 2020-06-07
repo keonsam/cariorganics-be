@@ -8,7 +8,7 @@ export class Product extends Document {
     @Prop()
     brand: string;
     @Prop()
-    name: string;
+    title: string;
     @Prop()
     store: string;
     @Prop()

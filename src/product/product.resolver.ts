@@ -9,7 +9,7 @@ export class ProductResolver {
     }
 
     @Query(() => [ProductDto])
-    async getProducts(): Promise<ProductDto[]> {
+    async getProducts( ): Promise<ProductDto[]> {
         return this.productsService.getProducts();
     }
 

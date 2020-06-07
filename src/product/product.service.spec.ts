@@ -44,12 +44,10 @@ describe('ProductsService', () => {
     });
 
     describe('root',() => {
+
         it('should find products', async () => {
             const data = await productsService.getProducts();
             expect(data).toEqual([saveData]);
-            // expect(data.checkoutId).toBeTruthy();
-            // expect(data.status).toBe('unconfirmed');
-            // expect(data.createdOn).toBeTruthy();
         });
     });
 });

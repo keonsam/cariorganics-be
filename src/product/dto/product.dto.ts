@@ -8,7 +8,7 @@ export class ProductDto {
     @Field()
     brand: string;
     @Field()
-    name: string;
+    title: string;
     @Field()
     store: string;
     @Field()
@@ -22,7 +22,7 @@ export class ProductDto {
 
     constructor(product?: ProductInput) {
         this.brand = product.brand;
-        this.name = product.name;
+        this.title = product.title;
         this.store = product.store;
         this.price = product.price;
         this.description = product.description;

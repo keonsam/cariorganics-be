@@ -1,16 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import {ProductResolver} from "./product.resolver";
 import {ProductService} from "./product.service";
-
 describe('ProductsResolver', () => {
     let productsResolver: ProductResolver;
+
+    // const file = new File('test.png').createReadStream();
     const product = {
         productId: "12",
         brand: "test",
-        name: "testing",
+        title: "testing",
         store: "store A",
         price: "22.31",
-        description: "any"
+        description: "any",
     };
     const products = [product];
     const productsService = {
