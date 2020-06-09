@@ -10,4 +10,6 @@ export class UserInfoInput {
     email: string;
     @Field()
     phoneNumber: string;
+    @Field()
+    location: string;
 }
