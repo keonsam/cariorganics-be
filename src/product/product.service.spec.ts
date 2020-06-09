@@ -9,7 +9,7 @@ describe('ProductsService', () => {
 
     const productData: ProductInput = {
         brand: "test",
-        name: "testing",
+        title: "testing",
         store: "store A",
         price: "31",
         description: "any"

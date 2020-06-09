@@ -31,14 +31,14 @@ describe('CheckoutResolver (e2e)', () => {
                 addProduct(
                     productData: {
                         brand: "test",
-                        name: "testing",
+                        title: "testing",
                         store: "store A",
                         price: "25.3",
                         description: "a desc"
                     }
                 ) {
                 productId
-                name
+                title
                 brand
                 store
                 price
@@ -58,7 +58,7 @@ describe('CheckoutResolver (e2e)', () => {
                 expect(body.data).toBeTruthy();
                 const data = body.data.addProduct;
                 expect(data.productId).toBeTruthy();
-                expect(data.name).toBeTruthy();
+                expect(data.title).toBeTruthy();
                 expect(data.brand).toBeTruthy();
                 expect(data.store).toBeTruthy();
                 expect(data.price).toBeTruthy();
@@ -72,7 +72,7 @@ describe('CheckoutResolver (e2e)', () => {
             query {
                 getProducts {
                 productId
-                name
+                title
                 brand
                 store
                 price
