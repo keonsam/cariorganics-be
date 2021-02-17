@@ -6,6 +6,7 @@ import {MongooseModule} from "@nestjs/mongoose";
 import {CheckoutModule} from "../src/checkout/checkout.module";
 import {AppResolver} from "../src/app.resolver";
 import {AppService} from "../src/app.service";
+import {TEST_DB} from "./test.db";
 
 describe('AppResolver (e2e)', () => {
   let app: INestApplication;
@@ -17,7 +18,7 @@ describe('AppResolver (e2e)', () => {
           autoSchemaFile: 'schema.gql',
         }),
         MongooseModule.forRoot(
-            'mongodb+srv://m001-student:m001-mongodb-basics@cariorganics-test-3ruzv.mongodb.net/cariogranics-test-db?retryWrites=true&w=majority'
+            TEST_DB
         ),
         CheckoutModule
       ],

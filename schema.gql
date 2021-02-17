@@ -2,29 +2,75 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Enquire {
+  brand: String!
+  name: String!
+  store: String!
+}
+
+type UserInfo {
+  firstName: String!
+  lastName: String!
+  email: String!
+  phoneNumber: String!
+  location: String!
+}
+
+type CheckoutDto {
+  checkoutId: ID!
+  userInfo: UserInfo!
+  enquire: [Enquire!]!
+  products: [ID!]!
+  status: String!
+  createdOn: Float!
+  modifiedOn: Float!
+}
+
 type ProductDto {
   productId: ID!
   brand: String!
   title: String!
   store: String!
-  price: String!
+  price: Float!
   description: String!
   createdOn: Float!
   modifiedOn: Float!
 }
 
 type Query {
+  helloWorld: String!
   getProducts: [ProductDto!]!
 }
 
 type Mutation {
+  checkout(checkoutData: CheckoutInput!): CheckoutDto!
   addProduct(productData: ProductInput!): ProductDto!
+}
+
+input CheckoutInput {
+  user: UserInfoInput!
+  enquire: [EnquireInput!]
+  products: [ID!]
+}
+
+input UserInfoInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  phoneNumber: String!
+  location: String!
+}
+
+input EnquireInput {
+  brand: String!
+  name: String!
+  store: String!
 }
 
 input ProductInput {
   brand: String
   title: String!
   store: String
-  price: String
+  price: Float
   description: String
 }

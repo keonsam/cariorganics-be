@@ -12,7 +12,7 @@ export class Product extends Document {
     @Prop()
     store: string;
     @Prop()
-    price: string;
+    price: number;
     @Prop()
     description: string;
     @Prop()

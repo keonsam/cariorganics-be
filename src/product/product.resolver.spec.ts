@@ -10,7 +10,7 @@ describe('ProductsResolver', () => {
         brand: "test",
         title: "testing",
         store: "store A",
-        price: "22.31",
+        price: 22.31,
         description: "any",
     };
     const products = [product];

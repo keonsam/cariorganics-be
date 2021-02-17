@@ -4,8 +4,8 @@ import * as request from 'supertest';
 import {CheckoutModule} from "../src/checkout/checkout.module";
 import {MongooseModule} from "@nestjs/mongoose";
 import {GraphQLModule} from "@nestjs/graphql";
-import {AppModule} from "../src/app.module";
 import {FakeTestingResolver} from "./fake.testing.resolver";
+import {TEST_DB} from "./test.db";
 
 describe('CheckoutResolver (e2e)', () => {
     let app: INestApplication;
@@ -15,7 +15,7 @@ describe('CheckoutResolver (e2e)', () => {
             imports: [
                 CheckoutModule,
                 MongooseModule.forRoot(
-                    'mongodb+srv://m001-student:m001-mongodb-basics@cariorganics-test-3ruzv.mongodb.net/cariogranics-test-db?retryWrites=true&w=majority'
+                    TEST_DB
                 ),
                 GraphQLModule.forRoot({
                     autoSchemaFile: 'schema.gql',

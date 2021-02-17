@@ -11,8 +11,8 @@ export class ProductDto {
     title: string;
     @Field()
     store: string;
-    @Field()
-    price: string;
+    @Field( () => Float)
+    price: number;
     @Field()
     description: string;
     @Field( () => Float)

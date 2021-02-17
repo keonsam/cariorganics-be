@@ -1,4 +1,4 @@
-import {Field, InputType} from "@nestjs/graphql";
+import {Field, Float, InputType} from "@nestjs/graphql";
 // import { GraphQLUpload, FileUpload } from 'graphql-upload';
 
 @InputType()
@@ -9,8 +9,8 @@ export class ProductInput {
     title: string;
     @Field({nullable: true})
     store: string;
-    @Field( {nullable: true})
-    price: string;
+    @Field( () => Float,{nullable: true})
+    price: number;
     @Field({nullable: true})
     description: string;
     // @Field( ()=> GraphQLUpload,{nullable: true})

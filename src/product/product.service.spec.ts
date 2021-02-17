@@ -11,7 +11,7 @@ describe('ProductsService', () => {
         brand: "test",
         title: "testing",
         store: "store A",
-        price: "31",
+        price: 31,
         description: "any"
     };
 
